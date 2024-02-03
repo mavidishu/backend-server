@@ -17,11 +17,9 @@ router.get("/fetchallnotes", fetchuser, async (req, res) => {
 });
 
 // Add a new node using: POST "/api/notes/addnote". Login required.
-router.post(
-  "/addnote",
-  fetchuser,
+router.post("/addnote",fetchuser,
   [
-    body("title", "minimum length must be 3").isLength({ min: 3 }),
+    body("title", "minimum length must be 5").isLength({ min: 5 }),
     body("description", "description should not be empty").exists(),
   ],
   async (req, res) => {
